@@ -8,7 +8,10 @@ export const deleteVideoController = (req: Request<ParamType>, res: Response) =>
         res.sendStatus(404)
     }
 
-    db.videos.filter(video => video.id !== +req.params.id)
+    db.videos = db.videos.filter(video => video.id !== +req.params.id)
+
+    res.send(db.videos)
+    return
 
     res.sendStatus(204)
 }
