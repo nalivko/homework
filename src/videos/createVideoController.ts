@@ -51,8 +51,6 @@ const inputValidation = (video: InputVideoType) => {
 
 export const createVideoController = (req: Request<any, any, InputVideoType>, res: Response<any /*OutputVideoType*/ | OutputErrorsType>) => {
 
-    // res.send(!!req.body.availableResolutions.find(r => !Resolutions[r]))
-    // return
     const errors = inputValidation(req.body)
     
     if (errors.errorsMessages.length) {
@@ -68,7 +66,7 @@ export const createVideoController = (req: Request<any, any, InputVideoType>, re
         ...req.body,
         id: Date.now() + Math.random(),
         // author: 'a' + Date.now() + Math.random(),
-        canBeDownloaded: true,
+        canBeDownloaded: false,
         minAgeRestriction: null,
         createdAt: date.toISOString(),
         publicationDate: pubDate.toISOString(),
