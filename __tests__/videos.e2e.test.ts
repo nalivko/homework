@@ -45,10 +45,6 @@ describe('/videos', () => {
                   {
                     "message": "error!!!",
                     "field": "author"
-                  },
-                  {
-                    "message": "error!!!",
-                    "field": "availableResolutions"
                   }
                 ]
               })

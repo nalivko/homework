@@ -39,7 +39,7 @@ const inputValidation = (video: InputVideoType) => {
 
     const notValidAvailableResolution = !!video.availableResolutions.find(r => !Resolutions[r])
 
-    if(!Array.isArray(video.availableResolutions) || notValidAvailableResolution || !video.availableResolutions.length) {
+    if(!Array.isArray(video.availableResolutions) || notValidAvailableResolution) {
         errors.errorsMessages.push({
             message: 'error!!!',
             field: 'availableResolutions'
