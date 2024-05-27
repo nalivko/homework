@@ -45,7 +45,7 @@ const inputValidation = (video: UpdateVideoType) => {
         })
     }
 
-    if(!video.minAgeRestriction) {
+    if(!video.minAgeRestriction || (video.minAgeRestriction > 18 || video.minAgeRestriction < 1)) {
         errors.errorsMessages.push({
             message: 'error!!!',
             field: 'minAgeRestriction'
