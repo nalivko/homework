@@ -37,9 +37,9 @@ const inputValidation = (video: InputVideoType) => {
         })
     }
 
-    const isValidAvailableResolution = !!video.availableResolutions.find(r => !Resolutions[r])
+    const notValidAvailableResolution = !!video.availableResolutions.find(r => !Resolutions[r])
 
-    if(!Array.isArray(video.availableResolutions) || !isValidAvailableResolution) {
+    if(!Array.isArray(video.availableResolutions) || notValidAvailableResolution) {
         errors.errorsMessages.push({
             message: 'error!!!',
             field: 'availableResolutions'
@@ -51,7 +51,7 @@ const inputValidation = (video: InputVideoType) => {
 
 export const createVideoController = (req: Request<any, any, InputVideoType>, res: Response<any /*OutputVideoType*/ | OutputErrorsType>) => {
 
-    // res.send(req.body)
+    // res.send(!!req.body.availableResolutions.find(r => !Resolutions[r]))
     // return
     const errors = inputValidation(req.body)
     
