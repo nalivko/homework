@@ -38,7 +38,7 @@ const inputValidation = (video: UpdateVideoType) => {
         })
     }
 
-    if(!video.canBeDownloaded) {
+    if(!video.canBeDownloaded || typeof video.canBeDownloaded !== 'boolean') {
         errors.errorsMessages.push({
             message: 'error!!!',
             field: 'canBeDownloaded'
@@ -91,12 +91,12 @@ export const updateVideoController = (req: Request<ParamType>, res: Response) =>
     // video.minAgeRestriction = req.body.minAgeRestriction
     // video.publicationDate = req.body.publicationDate
 
-    const upadtedVideo = {...video, ...req.body }
-    video = 
-    res.send(db.videos)
-    return
+    // const upadtedVideo = {...video, ...req.body }
+    // video = 
+    // res.send(db.videos)
+    // return
 
-    // video = Object.assign(video, req.body);
+    video = Object.assign(video, req.body);
 
     res.sendStatus(204)
 }
