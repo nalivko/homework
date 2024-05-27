@@ -51,6 +51,16 @@ const inputValidation = (video: UpdateVideoType) => {
             field: 'minAgeRestriction'
         })
     }
+    
+    const isDateISOstring = () => {
+        return video.publicationDate === new Date(Date.parse(video.publicationDate)).toISOString()
+    }
+    if (!isDateISOstring()) {
+        errors.errorsMessages.push({
+            message: 'error!!!',
+            field: 'publicationDate'
+        })
+    }
 
     const notValidAvailableResolution = !!video.availableResolutions.find(r => !Resolutions[r])
 
